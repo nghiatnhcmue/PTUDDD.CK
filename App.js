@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
+import AuthNavigation from './AuthNavigation';
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs(['Setting a timer'])
+LogBox.ignoreAllLogs();
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <AuthNavigation/>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+      backgroundColor: 'black',
+      flex: 1,
+      paddingTop: Platform.OS === 'android' ? 25 : 0
   },
-});
+})
+
